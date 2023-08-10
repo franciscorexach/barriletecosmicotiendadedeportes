@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar'
@@ -9,7 +8,7 @@ function App() {
   return (
    <div>
    <NavBar />
-   <ItemListContainer />
+   <ItemListContainer greeting="Bienvenidos" message="La vida no es la misma sin fútbol"/>
    </div>
   )
 }

@@ -1,10 +1,13 @@
-import React from "react";
-
-const CartWidget = ({ notificationCount }) => {
+const CartWidget = () => {
     return (
-      <div className="cart-widget">
-        <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-        {notificationCount > 0 && <span className="notification">{notificationCount}</span>}
+      <div>
+        <button className="btn btn-outline-primary position-relative">
+          <i className="bi bi-cart"></i>
+          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    0
+    <span className="visually-hidden">Productos añadidos al carrito</span>
+  </span>
+        </button>
       </div>
     );
   };

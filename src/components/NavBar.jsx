@@ -1,45 +1,31 @@
-import React from 'react'
+import CartWidget from "./CartWidget"
 
 function NavBar() {
   
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-  <div className="container-fluid">
-    <h1 className="navbar-brand" href="#">SOLO FUTBOL</h1>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container-fluid">
+      <a class="navbar-brand">BARRILETE COSMICO</a>
+      <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Inicio</a>
+          <a className="nav-link" href='#'>Camisetas</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Camisetas</a>
+          <a className="nav-link" href='#'>Pantalones</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Pantalones</a>
+          <a className="nav-link" href='#'>Medias</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Medias</a>
+          <a className="nav-link" href='#'>Botines</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Botines</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Pelotas</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Contacto</a>
+          <a className="nav-link" href='#'>Pelotas</a>
         </li>
       </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
-        <button className="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
-    </div>
-  </div>
-</nav>
+      <CartWidget />
+      </div>
+    </nav>   
     )
   }
   

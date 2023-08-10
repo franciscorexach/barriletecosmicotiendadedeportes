@@ -1,11 +1,9 @@
-import React from 'react';
-
-function ItemListContainer() {
+function ItemListContainer({ greeting, message}) {
   
     return (
         <div>
-            <h1>BIENVENIDOS</h1>
-            <h3>La vida no es la misma sin fútbol</h3>
+    <h1>{greeting}</h1>
+    <h3>{message}</h3>
         </div>
     )
   }
