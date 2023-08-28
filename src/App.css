@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.nav-item {
+  margin-left: 3px;
+  margin-right: 3px;
+}

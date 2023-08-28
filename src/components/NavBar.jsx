@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom"
 import CartWidget from "./CartWidget"
 
 function NavBar() {
@@ -5,22 +6,22 @@ function NavBar() {
     return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-      <a class="navbar-brand">BARRILETE COSMICO</a>
+      <Link to="/">BARRILETE COSMICO</Link>
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link" href='#'>Camisetas</a>
+          <NavLink to="/category/camisetas">Camisetas</NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href='#'>Pantalones</a>
+        <NavLink to="/category/pantalones">Pantalones</NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href='#'>Medias</a>
+        <NavLink to="/category/medias">Medias</NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href='#'>Botines</a>
+        <NavLink to="/category/botines">Botines</NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href='#'>Pelotas</a>
+        <NavLink to="/category/pelotas">Pelotas</NavLink>
         </li>
       </ul>
       <CartWidget />
