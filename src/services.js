@@ -1,38 +1,69 @@
-const products = [
-    { id: "1", name: "Camiseta Adidas Argentina", price: 200, category: "camisetas" },
-    { id: "2", name: "Camiseta Nike Francia", price: 190, category: "camisetas" },
-    { id: "3", name: "Pantalón Adidas Boca Juniors", price: 100, category: "pantalones" },
-    { id: "4", name: "Pantalón Nike Barcelona F.C.", price: 125, category: "pantalones" },
-    { id: "5", name: "Medias Adidas Argentina", price: 5, category: "medias" },
-    { id: "6", name: "Medidas NiKe Francia", price: 5, category: "medias" },
-    { id: "7", name: "Botines Umbro Beat", price: 40, category: "botines" },
-    { id: "8", name: "Botines Mizuno Morelia Neo Kl", price: 50, category: "botines" },
-    { id: "9", name: "Pelota Al Rihla Copa Mundial de Qatar 2022", price: 30, category: "pelotas" },
-  ];
+import {
+  doc,
+  getDoc,
+  collection,
+  getDocs,
+  addDoc,
+  query,
+  where,
+  getFirestore,
+} from "firebase/firestore";
 
-  export const getProduct = (id) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const product = products.find((p) => p.id === id);
-  
-        if (product) {
-          resolve(product);
+// getProduct
+export const getProduct = (id) => {
+  return new Promise((resolve, reject) => {
+    const db = getFirestore();
+
+    const itemDoc = doc(db, "items", id);
+
+    getDoc(itemDoc)
+      .then((doc) => {
+        if (doc.exists()) {
+          resolve({ id: doc.id, ...doc.data() });
         } else {
-          reject("No existe el producto");
+          resolve(null);
         }
-      }, 1000);
-    });
-  };
-  
-  export const getProducts = (category) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-  
-        const productsFiltered = category
-          ? products.filter((product) => product.category === category)
-          : products;
-  
-        resolve(productsFiltered);
-      }, 1000);
-    });
-  };
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+// getProducts() -> devuelve todos los productos
+// getProducts("phones") -> devuelve todos los productos de la categoría phones
+// getProducts("tablets") -> devuelve todos los productos de la categoría tablets
+// getProducts("notebooks") -> devuelve todos los productos de la categoría notebooks
+export const getProducts = (categoryId) => {
+  return new Promise((resolve, reject) => {
+    const db = getFirestore();
+
+    const itemCollection = collection(db, "items");
+
+    let q;
+    if (categoryId) {
+      q = query(itemCollection, where("categoryId", "==", categoryId));
+    } else {
+      q = query(itemCollection);
+    }
+
+    getDocs(q)
+      .then((querySnapshot) => {
+        const products = querySnapshot.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        });
+        resolve(products);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+export const createOrder = (orden) => {
+  const db = getFirestore();
+
+  const ordersCollection = collection(db, "orders");
+
+  return addDoc(ordersCollection, orden);
+};

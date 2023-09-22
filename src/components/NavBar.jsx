@@ -9,19 +9,19 @@ function NavBar() {
       <Link to="/">BARRILETE COSMICO</Link>
       <ul className="navbar-nav">
         <li className="nav-item">
-          <NavLink to="/category/camisetas">Camisetas</NavLink>
+          <NavLink to="/categoryID/camisetas">Camisetas</NavLink>
         </li>
         <li className="nav-item">
-        <NavLink to="/category/pantalones">Pantalones</NavLink>
+        <NavLink to="/categoryID/pantalones">Pantalones</NavLink>
         </li>
         <li className="nav-item">
-        <NavLink to="/category/medias">Medias</NavLink>
+        <NavLink to="/categoryID/medias">Medias</NavLink>
         </li>
         <li className="nav-item">
-        <NavLink to="/category/botines">Botines</NavLink>
+        <NavLink to="/categoryID/botines">Botines</NavLink>
         </li>
         <li className="nav-item">
-        <NavLink to="/category/pelotas">Pelotas</NavLink>
+        <NavLink to="/categoryID/pelotas">Pelotas</NavLink>
         </li>
       </ul>
       <CartWidget />

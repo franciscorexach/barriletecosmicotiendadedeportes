@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 
 const ItemDetail = ({ item, isLoading }) => {
   if (isLoading) {
@@ -11,9 +12,9 @@ const ItemDetail = ({ item, isLoading }) => {
 
   return (
     <div>
-      <h1>{item.name}</h1>
+      <h1>{item.title}</h1>
       <p>${item.price}</p>
-      <p>{item.category}</p>
+      <p>{item.categoryID}</p>
     </div>
   );
 };
